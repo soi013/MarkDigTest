@@ -29,10 +29,6 @@ namespace MarkDigTest
         {
             InitializeComponent();
 
-            Viewer.Pipeline = new MarkdownPipelineBuilder()
-                .UseSupportedExtensions()
-                .Build();
-
             CreateHtml();
         }
 
@@ -49,7 +45,7 @@ namespace MarkDigTest
             File.WriteAllText(ouputPath, markdownText);
         }
 
-        private void OpenHyperlink(object sender, System.Windows.Input.ExecutedRoutedEventArgs e)
+        private void OpenHyperlink(object sender, ExecutedRoutedEventArgs e)
         {
             Process.Start(new ProcessStartInfo("cmd", $"/c start {e.Parameter}") { CreateNoWindow = true });
         }
